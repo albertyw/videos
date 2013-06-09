@@ -1,5 +1,5 @@
 <?php
-require('./strictusercheckvalues.php');
+require('include/strictusercheckvalues.php');
 
 //Check if already user checked
 $allow = false;

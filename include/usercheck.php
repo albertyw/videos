@@ -1,4 +1,5 @@
 <?php
+require('include/usercheckvalues.php');
 
 //Check if already user checked
 $allow = false;
