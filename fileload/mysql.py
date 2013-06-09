@@ -51,11 +51,3 @@ class Mysql():
             return 1
         return 0
 
-'''
-swoopo = SwoopoDB()
-query = "INSERT INTO Auctions (auctionid) VALUES('1')"
-query = "SELECT * FROM Auctions"
-swoopo.query(query)
-print swoopo.fetch()
-print swoopo.fetch()
-'''
