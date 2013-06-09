@@ -1,0 +1,31 @@
+body{
+    background-color: #104BA9;
+    color: white;
+}
+A:link {
+    text-decoration: none;
+    color: #FFB773;
+}
+A:visited {
+    text-decoration: none;
+    color: #BF7630;
+}
+A:active, A:hover {
+    text-decoration: underline;
+    color: #FFB773;
+}
+#header{
+    background-color: #052D6E;
+    color: #052D6E;
+    color: white;
+}
+#header h1{
+    text-align: center;
+}
+#header h1 A{
+    color: #FFC000;
+    text-decoration: none;
+}
+img {
+    border-style: none;
+}

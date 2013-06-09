@@ -1,4 +1,4 @@
 videos
 ======
 
-Simple website that catalogues movies and stuff
+Videos lister at albertyw.mit.edu/videos
