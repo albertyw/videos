@@ -39,30 +39,6 @@ if($server == 'localfiles'){
     send_file($filelocation, $file);
     exit;
 }
-/*
-//From moviepooper
-if($server == 'moviepooper'){
-    $filelocation = $row['filedirectory'].$row['filename'];
-    $downloadlocation = 'http://albertyw.mit.edu/codes/glype/browse.php?u='.$filelocation;
-    $downloadlocation = str_replace(' ','%20',$downloadlocation);
-    echo '<script type="text/javascript">';
-    echo 'window.location="'.$downloadlocation.'"';
-    echo '</script>';
-    echo 'Download your video at '.$downloadlocation;
-    exit;
-}
-//From tversity
-if($server == 'tversity'){
-    $filelocation = $row['filelocation'];
-    $downloadlocation = 'http://albertyw.mit.edu/codes/glype/browse.php?u='.$filelocation;
-    $downloadlocation = str_replace(' ','%20',$downloadlocation);
-    echo '<script type="text/javascript">';
-    echo 'window.location="'.$downloadlocation.'"';
-    echo '</script>';
-    echo 'Download your video at '.$downloadlocation;
-    exit;
-}
-*/
 
 //Need to read files in chunks because normal readfile() takes too much space
 function send_file($path, $name) {

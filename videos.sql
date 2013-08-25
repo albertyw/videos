@@ -85,21 +85,6 @@ CREATE TABLE IF NOT EXISTS `localfiles` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `moviepooper`
---
-
-CREATE TABLE IF NOT EXISTS `moviepooper` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `filename` varchar(100) NOT NULL,
-  `filedirectory` varchar(100) NOT NULL,
-  `size` int(11) NOT NULL,
-  `downloads` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1927 ;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tversity`
 --
 

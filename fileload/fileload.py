@@ -56,57 +56,6 @@ for directory in directoryList:
                 databaseConnectDelete.query(query)
         fileInfo = databaseConnect.fetch()
 
-'''
-#Get the list of movie pooper directories
-query = "SELECT directory FROM directories WHERE server='moviepooper'"
-databaseConnect.query(query)
-moviepooperDirectory = databaseConnect.fetch()
-directoryList = []
-while moviepooperDirectory != {}:
-    directoryList.append(moviepooperDirectory['directory'])
-    moviepooperDirectory = databaseConnect.fetch()
-
-#Get list of movie pooper files
-for moviepooperDirectory in directoryList:
-    movieshtml = comminstance.open(moviepooperDirectory).readlines()
-    for line in movieshtml:
-        if line[0:4]!='<tr>':
-            continue
-        if '/icons/folder.gif' in line:
-            continue
-        if '<th colspan="5">' in line:
-            continue
-        if 'Parent Directory' in line:
-            continue
-        startindex = line.find('<a href="')+9
-        startindex = line.find('"',startindex)+2
-        fileName = line[startindex:line.find('</a>',startindex)]
-        startindex = line.find('<td align="right">',line.find('<td align="right">')+18)+18
-        size = line[startindex:line.find('</td>',startindex)]
-        if size[len(size)-1:len(size)]=='K':
-            size = int(round(float(size[0:len(size)-1])*2**10))
-        elif size[len(size)-1:len(size)]=='M':
-            size = int(round(float(size[0:len(size)-1])*2**20))
-        elif size[len(size)-1:len(size)]=='G':
-            size = int(round(float(size[0:len(size)-1])*2**30))
-        query = "SELECT * FROM moviepooper WHERE filename='"+databaseConnect.escape_string(fileName)+"'"
-        databaseConnect.query(query)
-        fileInfo = databaseConnect.fetch()
-        if fileInfo == {}:
-            query = "INSERT INTO moviepooper (filename, filedirectory, size, downloads) VALUES('"+databaseConnect.escape_string(fileName)+"', '"+databaseConnect.escape_string(moviepooperDirectory)+"', '"+str(size)+"', '0')"
-            databaseConnect.query(query)
-    
-    #Get the list of mysql files for movie pooper and make sure they still exist
-    query = "SELECT filename,id FROM moviepooper WHERE filedirectory='"+moviepooperDirectory+"'"
-    databaseConnect.query(query)
-    fileInfo = databaseConnect.fetch()
-    movieshtml = comminstance.open(moviepooperDirectory).read()
-    while fileInfo != {}:
-        if fileInfo['filename'] not in movieshtml:
-            query = "DELETE FROM moviepooper WHERE id='"+str(fileInfo['id'])+"'"
-            databaseConnectDelete.query(query)
-        fileInfo = databaseConnect.fetch()
-'''
 '''    
 #Get list of tversity directories
 query = "SELECT directory FROM directories WHERE server='tversity'"
