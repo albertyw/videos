@@ -55,44 +55,6 @@ for directory in directoryList:
                 query = "UPDATE localfiles SET modtime = '"+modTime+"' WHERE id='"+str(fileInfo['id'])+"'"
                 databaseConnectDelete.query(query)
         fileInfo = databaseConnect.fetch()
-
-'''    
-#Get list of tversity directories
-query = "SELECT directory FROM directories WHERE server='tversity'"
-databaseConnect.query(query)
-tversityDirectory = databaseConnect.fetch()
-directoryList = []
-while tversityDirectory!={}:
-    directoryList.append(tversityDirectory['directory'])
-    tversityDirectory = databaseConnect.fetch()
-    
-#Get list of tversity files
-for tversityDirectory in directoryList:
-    tversityhtml = comminstance.open(tversityDirectory).read()
-    startid = 0
-    while startid!=-1:
-        startid = tversityhtml.find('<a title="', startid)+10
-        fileName = tversityhtml[startid:tversityhtml.find('"',startid)]
-        startid = tversityhtml.find('" href="', startid)+8
-        fileLocation = tversityhtml[startid:tversityhtml.find('"',startid)]
-        query = "SELECT * FROM tversity WHERE filelocation='"+databaseConnect.escape_string(fileLocation)+"'"
-        databaseConnect.query(query)
-        fileInfo = databaseConnect.fetch()
-        if fileInfo == {}:
-            query = "INSERT INTO tversity (filename, filelocation, filedirectory) VALUES('"+databaseConnect.escape_string(fileName)+"', '"+databaseConnect.escape_string(fileLocation)+"', '"+tversityDirectory+"')"
-            databaseConnect.query(query)
-        startid = tversityhtml.find('<a title="', startid)
-    #Get the list of mysql files for tversity and make sure they still exist
-    query = "SELECT * FROM tversity WHERE filedirectory='"+databaseConnect.escape_string(tversityDirectory)+"'"
-    databaseConnect.query(query)
-    fileInfo = databaseConnect.fetch()
-    while fileInfo != {}:
-        if fileInfo['filelocation'] not in tversityhtml:
-            query = "DELETE FROM tversity WHERE id='"+str(fileInfo['id'])+"'"
-            databaseConnectDelete.query(query)
-        fileInfo = databaseConnect.fetch()
-'''    
-    
     
 def getDirName(directoryLocation):
     firstslash = directoryLocation[0:len(directoryLocation)-1].rfind('/')

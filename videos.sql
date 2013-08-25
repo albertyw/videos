@@ -82,22 +82,6 @@ CREATE TABLE IF NOT EXISTS `localfiles` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1175 ;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `tversity`
---
-
-CREATE TABLE IF NOT EXISTS `tversity` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `filename` varchar(100) NOT NULL,
-  `filelocation` varchar(500) NOT NULL,
-  `size` int(11) NOT NULL,
-  `downloads` int(11) NOT NULL,
-  `filedirectory` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1759 ;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
